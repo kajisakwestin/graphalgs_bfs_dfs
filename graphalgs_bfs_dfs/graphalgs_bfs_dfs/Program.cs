@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using graphalgs_bfs_dfs;
 
-Console.WriteLine("Hello, World!");
-
 Graph g = new Graph(4);
 
 g.AddEdge(0, 1);
