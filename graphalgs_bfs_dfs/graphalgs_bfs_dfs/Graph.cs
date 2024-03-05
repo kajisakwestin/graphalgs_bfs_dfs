@@ -8,8 +8,8 @@ namespace graphalgs_bfs_dfs
 {
     class Graph
     {
-        private int V; // Antal noder
-        private List<int>[] adj; // Adjacencylista
+        private int V; // number of nodes
+        private List<int>[] adj; // Adjacency list
 
         public Graph(int v)
         {
@@ -19,27 +19,33 @@ namespace graphalgs_bfs_dfs
                 adj[i] = new List<int>();
         }
 
-        public void AddEdge(int v, int w)
+        /// <summary>
+        /// v is the parent, w is the child
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="c"></param>
+        public void AddEdge(int p, int c)
         {
-            adj[v].Add(w); // Lägg till w till v's lista.
+            adj[p].Add(c);
         }
 
-        // BFS från en given startnod
+        // BFS from a given start node
         public void BFS(int s)
         {
-            bool[] visited = new bool[V]; // Alla noder är inte besökta i början
+            bool[] visited = new bool[V]; // all the nodes are not visited from the beginning
 
-            Queue<int> queue = new Queue<int>(); // Skapa en kö för BFS
+            Queue<int> queue = new Queue<int>(); // create a queue for BFS
 
-            visited[s] = true; // Markera aktuell nod som besökt och lägg till den i kön
+            visited[s] = true; // mark the node as visited and add it to the queue
             queue.Enqueue(s);
 
             while (queue.Count != 0)
             {
-                s = queue.Dequeue(); // Ta bort en nod från kön och skriv ut den
+                s = queue.Dequeue(); // remove a node from the queue and print it
                 Console.Write(s + " ");
 
-                // Hämta alla grannar till den borttagna noden och om en granne inte är besökt, markera den som besökt och lägg till den i kön
+                // get all the neigbours to the removed node and - if a neighbour
+                // is not visited - mark it as visited and add it to the queue
                 foreach (int next in adj[s])
                 {
                     if (!visited[next])
@@ -51,22 +57,23 @@ namespace graphalgs_bfs_dfs
             }
         }
 
-        // DFS från en given startnod
+        //DFS from a given start node
         public void DFS(int s)
         {
-            bool[] visited = new bool[V]; // Alla noder är inte besökta i början
+            bool[] visited = new bool[V]; // all nodes are not visited from the beginning
 
-            Stack<int> stack = new Stack<int>(); // Skapa en stack för DFS
+            Stack<int> stack = new Stack<int>(); // create a stack for DFS
 
-            visited[s] = true; // Markera aktuell nod som besökt och lägg till den i stacken
+            visited[s] = true; // mark the node as visited and add it to the stack
             stack.Push(s);
 
             while (stack.Count != 0)
             {
-                s = stack.Pop(); // Ta bort en nod från stacken och skriv ut den
+                s = stack.Pop(); // remove a node from the stack and print it
                 Console.Write(s + " ");
 
-                // Hämta alla grannar till den borttagna noden och om en granne inte är besökt, markera den som besökt och lägg till den i stacken
+                // get all the neighbours for the removed node and - if a
+                // neigbour is not visited - mar it as visited and add it to the stack
                 foreach (int next in adj[s])
                 {
                     if (!visited[next])
