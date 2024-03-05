@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using graphalgs_bfs_dfs;
 
-int numberOfNodes = 7;
+int numberOfNodes = 10;
 Graph g = new Graph(numberOfNodes);
 int startNode;
 
@@ -15,6 +15,11 @@ g.AddEdge(3, 3);
 g.AddEdge(4, 4);
 g.AddEdge(5, 5);
 g.AddEdge(6, 6);
+g.AddEdge(4, 7);
+g.AddEdge(5, 8);
+g.AddEdge(7, 9);
+g.AddEdge(8, 8);
+g.AddEdge(9, 9);
 
 //ta emot ett värde att använda som startnod
 Console.WriteLine("Ange startnod:");
