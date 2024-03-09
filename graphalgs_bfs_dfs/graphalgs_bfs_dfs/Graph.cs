@@ -20,13 +20,13 @@ namespace graphalgs_bfs_dfs
         }
 
         /// <summary>
-        /// v is the parent, w is the child
+        /// the edge point from v and to w
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="c"></param>
-        public void AddEdge(int p, int c)
+        /// <param name="v"></param>
+        /// <param name="w"></param>
+        public void AddEdge(int v, int w)
         {
-            adj[p].Add(c);
+            adj[v].Add(w);
         }
 
         // BFS from a given start node
